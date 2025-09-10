@@ -1,0 +1,125 @@
+{
+    "skills": [
+        {
+            "id": "power_1",
+            "name": "Сила I",
+            "description": "+2 к силе клика",
+            "icon": "fa-fist-raised",
+            "x": 200,
+            "y": 100,
+            "cost": 1,
+            "unlocked": false,
+            "dependencies": []
+        },
+        {
+            "id": "power_2",
+            "name": "Сила II",
+            "description": "+5 к силе клика",
+            "icon": "fa-fist-raised",
+            "x": 400,
+            "y": 100,
+            "cost": 2,
+            "unlocked": false,
+            "dependencies": ["power_1"]
+        },
+        {
+            "id": "power_3",
+            "name": "Сила III",
+            "description": "+10 к силе клика",
+            "icon": "fa-fist-raised",
+            "x": 600,
+            "y": 100,
+            "cost": 3,
+            "unlocked": false,
+            "dependencies": ["power_2"]
+        },
+        {
+            "id": "income_1",
+            "name": "Доход I",
+            "description": "+1 к доходу/сек",
+            "icon": "fa-coins",
+            "x": 200,
+            "y": 300,
+            "cost": 1,
+            "unlocked": false,
+            "dependencies": []
+        },
+        {
+            "id": "income_2",
+            "name": "Доход II",
+            "description": "+3 к доходу/сек",
+            "icon": "fa-coins",
+            "x": 400,
+            "y": 300,
+            "cost": 2,
+            "unlocked": false,
+            "dependencies": ["income_1"]
+        },
+        {
+            "id": "income_3",
+            "name": "Доход III",
+            "description": "+5 к доходу/сек",
+            "icon": "fa-coins",
+            "x": 600,
+            "y": 300,
+            "cost": 3,
+            "unlocked": false,
+            "dependencies": ["income_2"]
+        },
+        {
+            "id": "efficiency_1",
+            "name": "Эффективность I",
+            "description": "Скидка 10% на улучшения",
+            "icon": "fa-percentage",
+            "x": 300,
+            "y": 200,
+            "cost": 2,
+            "unlocked": false,
+            "dependencies": ["power_1", "income_1"]
+        },
+        {
+            "id": "efficiency_2",
+            "name": "Эффективность II",
+            "description": "Скидка 25% на улучшения",
+            "icon": "fa-percentage",
+            "x": 500,
+            "y": 200,
+            "cost": 4,
+            "unlocked": false,
+            "dependencies": ["efficiency_1", "power_2", "income_2"]
+        },
+        {
+            "id": "master",
+            "name": "Мастер",
+            "description": "+10 ко всему",
+            "icon": "fa-star",
+            "x": 400,
+            "y": 400,
+            "cost": 5,
+            "unlocked": false,
+            "dependencies": ["power_3", "income_3", "efficiency_2"]
+        },
+        {
+            "id": "gem_finder",
+            "name": "Искатель гемов",
+            "description": "Шанс найти гем при клике",
+            "icon": "fa-gem",
+            "x": 100,
+            "y": 200,
+            "cost": 3,
+            "unlocked": false,
+            "dependencies": []
+        },
+        {
+            "id": "lucky",
+            "name": "Счастливчик",
+            "description": "Шанс критического удара x2",
+            "icon": "fa-clover",
+            "x": 700,
+            "y": 200,
+            "cost": 3,
+            "unlocked": false,
+            "dependencies": ["power_2"]
+        }
+    ]
+}

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Футбольный Кликер - Стань Легендой!</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/navigation.css">
+</head>
+<body>
+    <!-- Экран регистрации -->
+    <div id="registrationScreen" class="registration-screen">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="registration-container">
+                        <h1 class="game-title">Футбольный Кликер</h1>
+                        <p class="text-center mb-4">Создай своего игрока и стань легендой!</p>
+                        
+                        <form id="registrationForm">
+                            <div class="mb-3">
+                                <label for="playerName" class="form-label">Имя игрока</label>
+                                <input type="text" class="form-control" id="playerName" placeholder="Введите ваше имя" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Выберите аватар</label>
+                                <div class="avatar-selection">
+                                    <div class="avatar-option" data-avatar="1">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="avatar-option" data-avatar="2">
+                                        <i class="fas fa-user-astronaut"></i>
+                                    </div>
+                                    <div class="avatar-option" data-avatar="3">
+                                        <i class="fas fa-user-ninja"></i>
+                                    </div>
+                                    <div class="avatar-option" data-avatar="4">
+                                        <i class="fas fa-user-secret"></i>
+                                    </div>
+                                    <div class="avatar-option" data-avatar="5">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <div class="avatar-option" data-avatar="6">
+                                        <i class="fas fa-user-shield"></i>
+                                    </div>
+                                    <div class="avatar-option" data-avatar="7">
+                                        <i class="fas fa-user-cowboy"></i>
+                                    </div>
+                                    <div class="avatar-option" data-avatar="8">
+                                        <i class="fas fa-user-ninja"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100 py-3">
+                                Начать игру <i class="fas fa-play ms-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной игровой экран -->
+    <div id="gameScreen" class="game-screen">
+        <!-- Навигация -->
+        <nav class="game-navigation">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-futbol"></i>
+                    <span>Футбольный Кликер</span>
+                </div>
+                <div class="nav-menu">
+                    <button class="nav-btn active" data-section="main">
+                        <i class="fas fa-home"></i>
+                        <span>Главная</span>
+                    </button>
+                    <button class="nav-btn" data-section="skillTree">
+                        <i class="fas fa-sitemap"></i>
+                        <span>Дерево прокачки</span>
+                    </button>
+                    <button class="nav-btn" data-section="achievements">
+                        <i class="fas fa-trophy"></i>
+                        <span>Достижения</span>
+                    </button>
+                    <button class="nav-btn" data-section="collection">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Коллекция</span>
+                    </button>
+                    <button class="nav-btn" data-section="customization">
+                        <i class="fas fa-palette"></i>
+                        <span>Кастомизация</span>
+                    </button>
+                    <button class="nav-btn" data-section="social">
+                        <i class="fas fa-users"></i>
+                        <span>Социальное</span>
+                    </button>
+                    <button class="nav-btn" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Настройки</span>
+                    </button>
+                </div>
+                <div class="nav-user">
+                    <div class="user-avatar">
+                        <i id="navPlayerAvatarIcon" class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="navPlayerName">Игрок</div>
+                        <div class="user-level">Ур. <span id="navPlayerLevel">1</span></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid game-content">
+            <!-- Шапка игры -->
+            <div class="game-header">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div class="player-info">
+                            <div class="player-avatar">
+                                <i id="playerAvatarIcon" class="fas fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <h5 id="playerNameDisplay" class="mb-0">Игрок</h5>
+                                <small class="text-muted">Уровень <span id="playerLevel">1</span></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="currency-display">
+                            <div class="currency-item">
+                                <div class="currency-icon">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <span id="coinsAmount">0</span>
+                            </div>
+                            <div class="currency-item">
+                                <div class="currency-icon premium">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <span id="gemsAmount">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-outline-danger" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Выйти
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Разделы игры -->
+            <div class="game-sections">
+                <!-- Главная секция -->
+                <div id="mainSection" class="game-section active">
+                    <div class="game-area">
+                        <!-- Прокачка -->
+                        <div class="upgrades-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-rocket me-2"></i> Прокачка
+                            </h3>
+                            <div id="upgradesList">
+                                <!-- Прокачки будут добавлены через JS -->
+                            </div>
+                        </div>
+
+                        <!-- Кликер -->
+                        <div class="clicker-section">
+                            <h3 class="mb-4">Нажми на мяч!</h3>
+                            <div class="clicker-container">
+                                <button class="football-button" id="footballBtn">
+                                    <i class="fas fa-futbol"></i>
+                                </button>
+                                <div class="stats-display mt-4">
+                                    <div class="stat-item">
+                                        <i class="fas fa-mouse-pointer me-2"></i>
+                                        Сила клика: <span id="clickPower">1</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-clock me-2"></i>
+                                        Доход/сек: <span id="incomePerSec">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Магазин -->
+                        <div class="shop-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-shopping-cart me-2"></i> Магазин
+                            </h3>
+                            <div id="shopItems">
+                                <!-- Товары будут добавлены через JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Мультиплеер -->
+                    <div class="multiplayer-section">
+                        <h3 class="section-title">
+                            <i class="fas fa-users me-2"></i> Матч с ИИ
+                        </h3>
+                        <div class="match-container">
+                            <div class="player-stats">
+                                <div class="player-card">
+                                    <h5>Ваш счет</h5>
+                                    <div class="score-display" id="playerScore">0</div>
+                                </div>
+                                <div class="vs-divider">VS</div>
+                                <div class="player-card ai">
+                                    <h5>Счет ИИ</h5>
+                                    <div class="score-display" id="aiScore">0</div>
+                                </div>
+                            </div>
+                            <div class="match-controls">
+                                <button class="btn btn-success" id="startMatchBtn">
+                                    <i class="fas fa-play me-2"></i> Начать матч
+                                </button>
+                                <button class="btn btn-danger d-none" id="endMatchBtn">
+                                    <i class="fas fa-stop me-2"></i> Закончить матч
+                                </button>
+                            </div>
+                            <div class="match-timer">
+                                Время матча: <span id="matchTimer">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дерево прокачки -->
+                <div id="skillTreeSection" class="game-section">
+                    <div class="skill-tree-container">
+                        <h2 class="section-title">
+                            <i class="fas fa-sitemap me-2"></i> Дерево прокачки
+                        </h2>
+                        <div class="skill-points">
+                            <i class="fas fa-star"></i>
+                            Очки навыков: <span id="skillPoints">0</span>
+                        </div>
+                        <div id="skillTreeContent" class="skill-tree-content">
+                            <!-- Дерево навыков будет сгенерировано через JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Достижения -->
+                <div id="achievementsSection" class="game-section">
+                    <div class="achievements-container">
+                        <h2 class="section-title">
+                            <i class="fas fa-trophy me-2"></i> Достижения
+                        </h2>
+                        <div class="achievements-stats">
+                            <div class="stat-box">
+                                <i class="fas fa-medal"></i>
+                                <div>
+                                    <div class="stat-value" id="achievementsCompleted">0</div>
+                                    <div class="stat-label">Выполнено</div>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-percentage"></i>
+                                <div>
+                                    <div class="stat-value" id="achievementsProgress">0%</div>
+                                    <div class="stat-label">Прогресс</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="achievementsList" class="achievements-list">
+                            <!-- Достижения будут добавлены через JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Коллекция карт -->
+                <div id="collectionSection" class="game-section">
+                    <div class="collection-container">
+                        <h2 class="section-title">
+                            <i class="fas fa-layer-group me-2"></i> Коллекция карт
+                        </h2>
+                        <div class="collection-filters">
+                            <button class="filter-btn active" data-rarity="all">Все</button>
+                            <button class="filter-btn" data-rarity="1">Обычные</button>
+                            <button class="filter-btn" data-rarity="2">Редкие</button>
+                            <button class="filter-btn" data-rarity="3">Эпические</button>
+                            <button class="filter-btn" data-rarity="4">Легендарные</button>
+                            <button class="filter-btn" data-rarity="5">Мифические</button>
+                        </div>
+                        <div id="collectionGrid" class="collection-grid">
+                            <!-- Карты коллекции будут добавлены через JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кастомизация -->
+                <div id="customizationSection" class="game-section">
+                    <div class="customization-container">
+                        <h2 class="section-title">
+                            <i class="fas fa-palette me-2"></i> Кастомизация
+                        </h2>
+                        <div class="customization-tabs">
+                            <button class="tab-btn active" data-tab="ball">Мяч</button>
+                            <button class="tab-btn" data-tab="stadium">Стадион</button>
+                            <button class="tab-btn" data-tab="jersey">Форма</button>
+                            <button class="tab-btn" data-tab="effects">Эффекты</button>
+                        </div>
+                        <div id="customizationContent" class="customization-content">
+                            <!-- Контент кастомизации будет добавлен через JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Социальные функции -->
+                <div id="socialSection" class="game-section">
+                    <div class="social-container">
+                        <h2 class="section-title">
+                            <i class="fas fa-users me-2"></i> Социальное
+                        </h2>
+                        <div class="social-tabs">
+                            <button class="tab-btn active" data-tab="friends">Друзья</button>
+                            <button class="tab-btn" data-tab="leaderboard">Таблица лидеров</button>
+                            <button class="tab-btn" data-tab="clans">Кланы</button>
+                        </div>
+                        <div id="socialContent" class="social-content">
+                            <!-- Социальный контент будет добавлен через JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Настройки -->
+                <div id="settingsSection" class="game-section">
+                    <div class="settings-container">
+                        <h2 class="section-title">
+                            <i class="fas fa-cog me-2"></i> Настройки
+                        </h2>
+                        <div class="settings-categories">
+                            <div class="settings-category">
+                                <h3><i class="fas fa-volume-up me-2"></i> Звук</h3>
+                                <div class="setting-item">
+                                    <label>Громкость</label>
+                                    <input type="range" class="form-range" id="volumeSlider" min="0" max="100" value="50">
+                                </div>
+                                <div class="setting-item">
+                                    <label>Звуковые эффекты</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="soundEffectsToggle" checked>
+                                    </div>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Музыка</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="musicToggle" checked>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-category">
+                                <h3><i class="fas fa-eye me-2"></i> Визуальные настройки</h3>
+                                <div class="setting-item">
+                                    <label>Тема</label>
+                                    <select class="form-select" id="themeSelect">
+                                        <option value="dark">Темная</option>
+                                        <option value="light">Светлая</option>
+                                        <option value="auto">Автоматически</option>
+                                    </select>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Анимации</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="animationsToggle" checked>
+                                    </div>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Частицы</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="particlesToggle" checked>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-category">
+                                <h3><i class="fas fa-gamepad me-2"></i> Игровые настройки</h3>
+                                <div class="setting-item">
+                                    <label>Автосохранение</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="autoSaveToggle" checked>
+                                    </div>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Сложность ИИ</label>
+                                    <select class="form-select" id="aiDifficultySelect">
+                                        <option value="easy">Легко</option>
+                                        <option value="normal" selected>Нормально</option>
+                                        <option value="hard">Сложно</option>
+                                    </select>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Язык</label>
+                                    <select class="form-select" id="languageSelect">
+                                        <option value="ru" selected>Русский</option>
+                                        <option value="en">English</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-category">
+                                <h3><i class="fas fa-database me-2"></i> Данные</h3>
+                                <div class="setting-actions">
+                                    <button class="btn btn-primary" id="exportSaveBtn">
+                                        <i class="fas fa-download me-2"></i> Экспорт сохранения
+                                    </button>
+                                    <button class="btn btn-secondary" id="importSaveBtn">
+                                        <i class="fas fa-upload me-2"></i> Импорт сохранения
+                                    </button>
+                                    <button class="btn btn-danger" id="resetGameBtn">
+                                        <i class="fas fa-trash me-2"></i> Сбросить игру
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/player.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/upgrades.js"></script>
+    <script src="js/multiplayer.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/achievements.js"></script>
+    <script src="js/collection.js"></script>
+    <script src="js/customization.js"></script>
+    <script src="js/social.js"></script>
+    <script src="js/skillTree.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sounds.js"></script>
+</body>
+</html>

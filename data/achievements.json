@@ -1,0 +1,132 @@
+{
+    "achievements": [
+        {
+            "id": "first_click",
+            "name": "Первый шаг",
+            "description": "Сделайте свой первый клик",
+            "icon": "fa-mouse-pointer",
+            "condition": { "type": "clicks", "value": 1 },
+            "reward": { "coins": 10, "gems": 0 }
+        },
+        {
+            "id": "click_master",
+            "name": "Мастер клика",
+            "description": "Сделайте 100 кликов",
+            "icon": "fa-hand-pointer",
+            "condition": { "type": "clicks", "value": 100 },
+            "reward": { "coins": 100, "gems": 1 }
+        },
+        {
+            "id": "click_legend",
+            "name": "Легенда клика",
+            "description": "Сделайте 10000 кликов",
+            "icon": "fa-fire",
+            "condition": { "type": "clicks", "value": 10000 },
+            "reward": { "coins": 1000, "gems": 10 }
+        },
+        {
+            "id": "coin_collector",
+            "name": "Собиратель монет",
+            "description": "Накопите 1000 монет",
+            "icon": "fa-coins",
+            "condition": { "type": "coins", "value": 1000 },
+            "reward": { "coins": 0, "gems": 5 }
+        },
+        {
+            "id": "coin_millionaire",
+            "name": "Миллионер",
+            "description": "Накопите 1000000 монет",
+            "icon": "fa-money-bill-wave",
+            "condition": { "type": "coins", "value": 1000000 },
+            "reward": { "coins": 0, "gems": 50 }
+        },
+        {
+            "id": "gem_hunter",
+            "name": "Охотник за гемами",
+            "description": "Получите 10 гемов",
+            "icon": "fa-gem",
+            "condition": { "type": "gems", "value": 10 },
+            "reward": { "coins": 500, "gems": 0 }
+        },
+        {
+            "id": "gem_collector",
+            "name": "Коллекционер гемов",
+            "description": "Получите 100 гемов",
+            "icon": "fa-gem",
+            "condition": { "type": "gems", "value": 100 },
+            "reward": { "coins": 5000, "gems": 10 }
+        },
+        {
+            "id": "level_5",
+            "name": "Опытный игрок",
+            "description": "Достигните 5 уровня",
+            "icon": "fa-level-up-alt",
+            "condition": { "type": "level", "value": 5 },
+            "reward": { "coins": 200, "gems": 2 }
+        },
+        {
+            "id": "level_10",
+            "name": "Вeteran",
+            "description": "Достигните 10 уровня",
+            "icon": "fa-shield-alt",
+            "condition": { "type": "level", "value": 10 },
+            "reward": { "coins": 1000, "gems": 5 }
+        },
+        {
+            "id": "level_25",
+            "name": "Мастер",
+            "description": "Достигните 25 уровня",
+            "icon": "fa-crown",
+            "condition": { "type": "level", "value": 25 },
+            "reward": { "coins": 5000, "gems": 20 }
+        },
+        {
+            "id": "shopaholic",
+            "name": "Шопоголик",
+            "description": "Купите 5 улучшений",
+            "icon": "fa-shopping-cart",
+            "condition": { "type": "upgrades", "value": 5 },
+            "reward": { "coins": 300, "gems": 3 }
+        },
+        {
+            "id": "card_collector",
+            "name": "Коллекционер",
+            "description": "Соберите 10 карт",
+            "icon": "fa-layer-group",
+            "condition": { "type": "cards", "value": 10 },
+            "reward": { "coins": 400, "gems": 4 }
+        },
+        {
+            "id": "match_winner",
+            "name": "Победитель",
+            "description": "Выиграйте 5 матчей",
+            "icon": "fa-trophy",
+            "condition": { "type": "wins", "value": 5 },
+            "reward": { "coins": 500, "gems": 5 }
+        },
+        {
+            "id": "champion",
+            "name": "Чемпион",
+            "description": "Выиграйте 25 матчей",
+            "icon": "fa-medal",
+            "condition": { "type": "wins", "value": 25 },
+            "reward": { "coins": 2500, "gems": 25 }
+        },
+        {
+            "id": "marathon",
+            "name": "Марафонец",
+            "description": "Играйте 1 час",
+            "icon": "fa-clock",
+            "condition": { "type": "playtime", "value": 3600 },
+            "reward": { "coins": 1000, "gems": 10 }
+        },
+        {
+            "id": "addicted",
+            "name": "Зависимый",
+            "description": "Играйте 24 часа",
+            "icon": "fa-heart",
+            "condition": { "type": "playtime", "value": 86400 },
+            "reward": { "coins": 10000, "gems": 50 }
+        }
+    ]
+}
